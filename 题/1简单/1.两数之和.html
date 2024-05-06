@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} nums
+         * @param {number} target
+         * @return {number[]}
+         */
+        var twoSum = function(nums, target) {
+            var test = {}
+            for(var i = 0;i < nums.length ; i ++){
+                var a = nums[i]
+                var b = target - a   
+                var c = test[b]
+                if(c !== undefined){
+                    return [c,i]
+                }else{
+                    test[a] = i
+                }
+            }
+        };
+
+        console.log(twoSum([3,2,4],6))
+        console.log(twoSum([-3,4,3,90],0))
+    </script>
+</body>
+</html>

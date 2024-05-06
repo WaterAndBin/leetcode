@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} hours
+         * @param {number} target
+         * @return {number}
+         */
+        var numberOfEmployeesWhoMetTarget = function(hours, target) {
+            var j = 0
+            for(var i = 0 ; i < hours.length ; i ++){
+                if(hours[i] >= target){
+                    j++
+                }
+            }
+            return j;
+        };
+
+        console.log(numberOfEmployeesWhoMetTarget([0,1,2,3,4],2))
+    </script>
+</body>
+</html>
