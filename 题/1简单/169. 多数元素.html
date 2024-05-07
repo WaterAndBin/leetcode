@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} nums
+         * @return {number}
+         */
+        var majorityElement = function(nums) {
+            var map = new Map();
+
+            for(var i = 0;i<nums.length;i++){
+                if(map.get(nums[i])){
+                    map.set(nums[i],map.get(nums[i])+1)
+                }else{
+                    map.set(nums[i],1)
+                }
+            }
+
+            const max = Math.max(...map.values())
+            let maxNum
+            map.forEach((key,value)=>{
+                if(max == key){
+                    maxNum = value
+                }
+            })
+            return maxNum
+        };
+
+        console.log(majorityElement([2,2,1,1,1,2,2,1,1,1]))
+    </script>
+</body>
+</html>

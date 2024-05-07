@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {...(null|boolean|number|string|Array|Object)} args
+         * @return {number}
+         */
+        var argumentsLength = function(...args) {
+            return args.length
+        };
+
+        console.log(argumentsLength(1, 2, 3))
+        console.log(argumentsLength({},null,111))
+    </script>
+</body>
+</html>
