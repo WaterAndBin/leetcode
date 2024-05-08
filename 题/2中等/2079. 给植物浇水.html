@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} plants
+         * @param {number} capacity
+         * @return {number}
+         */
+        var wateringPlants = function(plants, capacity) {
+            var i = 0; // 左指针
+            var total = 0; // 总共
+            var cap = capacity; // 水桶量
+
+            while(true){
+                if(i > plants.length - 1){
+                    return total
+                }
+                /* 计算走过去步数 */
+                total = total + 1
+                if(cap >= plants[i]){
+                    cap = cap - plants[i]
+                    /* 判断下个是否够水 */
+                    if(cap < plants[i+1]){
+                        total = total + i + i + 2
+                        cap = capacity
+                    }
+                }
+                i++;
+            }
+        };
+
+        console.log(wateringPlants([2,2,3,3],5))
+        console.log(wateringPlants([1,1,1,4,2,3],4))
+        console.log(wateringPlants( [7,7,7,7,7,7,7],8))
+    </script>
+</body>
+</html>
