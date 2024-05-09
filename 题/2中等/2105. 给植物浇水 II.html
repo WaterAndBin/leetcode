@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} plants
+         * @param {number} capacityA
+         * @param {number} capacityB
+         * @return {number}
+         */
+        var minimumRefill = function(plants, capacityA, capacityB) {
+            // debugger
+            var total = 0;
+            var n1 = capacityA,n2=capacityB;
+            var i = 0,j=plants.length-1;
+            for(;i < j;i++,j--){
+                if(plants[i]<=n1){
+                    n1 = n1 - plants[i]
+                }
+                if(plants[j]<=n2){
+                    n2 = n2 - plants[j]
+                }
+
+                if(plants[i+1]>n1 && i+1 != j - 1 && i+1 != j){
+                    ++total
+                    n1 = capacityA
+                }
+                if(plants[j-1]>n2 && j-1 != i + 1 && j-1 != i){
+                    ++total
+                    n2 = capacityB
+                }
+            }
+
+            if(i == j){
+                if(plants[i] > n1 && plants[i] > n2){
+                    return ++total
+                }
+            }
+
+
+            return total
+        };
+
+        // console.log(minimumRefill([2,2,3,3],5,5))
+        // console.log(minimumRefill([2,2,3,3],3,4))
+        // console.log(minimumRefill([2,2,3,3,3],3,4))
+        // console.log(minimumRefill([1,2,4,4,5],6,5))
+        // console.log(minimumRefill([2,2,5,2,2],5,5))
+        console.log(minimumRefill([274,179,789,417,293,336,133,334,569,355,813,217,80,933,961,271,294,933,49,980,685,470,186,11,157,889,299,493,215,807,588,464,218,248,391,817,32,606,740,941,505,533,289,306,490],996,1172))
+    </script>
+</body>
+</html>
