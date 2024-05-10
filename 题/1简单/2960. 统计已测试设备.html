@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {number[]} batteryPercentages
+         * @return {number}
+         */
+        var countTestedDevices = function(batteryPercentages) {
+            let total = 0;
+            for(var i = 0;i<batteryPercentages.length;i++){
+                if(batteryPercentages[i] > 0){
+                    ++total
+                    for(var j = batteryPercentages.length;j>i;j--){
+                        if(batteryPercentages[j] !== 0){
+                            --batteryPercentages[j]
+                        }
+                    }
+                }
+            }
+
+            return total
+        };
+
+        console.log(countTestedDevices([1,1,2,1,3]))
+        console.log(countTestedDevices([0,1,2]))
+    </script>
+</body>
+</html>
